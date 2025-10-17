@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Restablecer Contraseña</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer contraseña - EntregApp</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,62 +16,57 @@
             margin: 0;
             padding: 20px;
         }
+
+        .container {
+            text-align: center;
+            background: #ffffffcc;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
         h1 {
             color: #004d00;
-            text-align: center;
+            margin-bottom: 20px;
         }
-        .form-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 300px;
-        }
-        input {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        button {
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            font-weight: bold;
-            color: white;
-            background-color: #32cd32;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #228b22;
-        }
-        .message {
-            text-align: center;
+
+        p {
+            margin-bottom: 30px;
             color: #004d00;
-            margin-top: 10px;
+        }
+
+        button {
+            background: linear-gradient(145deg,#32cd32,#228b22);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 6px rgba(0,0,0,0.4);
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px rgba(0,0,0,0.5);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #145214 inset;
         }
     </style>
 </head>
 <body>
-    <h1>Restablecer Contraseña</h1>
-    <div class="form-container">
-        <input type="email" id="email" placeholder="Ingresa tu correo" required />
-        <button onclick="redirectToApp()">Restablecer contraseña</button>
+    <div class="container">
+        <h1>Restablecer contraseña</h1>
+        <p>📩 Se envió un enlace a tu correo para restablecer la contraseña. Si estás en un móvil, puedes abrir la app directamente:</p>
+        <button onclick="window.location='entregapp://reset-password'">
+            Abrir app
+        </button>
     </div>
-    <p class="message">Si tienes la app instalada, se abrirá automáticamente.</p>
-
-    <script>
-        function redirectToApp() {
-            const email = document.getElementById("email").value;
-            if (!email) {
-                alert("Por favor ingresa tu correo electrónico.");
-                return;
-            }
-            // Aquí solo redirige al deep link de tu app
-            window.location.href = "entregapp://reset-password";
-        }
-
-        // Redirección automática si quieres que al abrir la página se intente abrir la app
-        // window.location.href = "entregapp://reset-password";
-    </script>
 </body>
 </html>
+
