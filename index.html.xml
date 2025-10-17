@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Restablecer contraseña</title>
+    <script>
+        // Captura el token enviado por Supabase en la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('access_token'); // Supabase usa access_token
+
+        if (token) {
+            // Redirige al deep link de tu app con el token
+            window.location.href = `entregapp://reset-password?token=${token}`;
+        } else {
+            document.body.innerHTML = "<p>No se detectó token. Abre desde el correo de restablecimiento.</p>";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirigiendo a la app...</p>
+</body>
+</html>
